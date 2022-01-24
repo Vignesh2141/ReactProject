@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { Route, Routes } from 'react-router-dom';
+import ShowStudents from './Components/ShowStudents';
+import './App.css';
+import { Nav } from './NavComponent/Nav';
+import DeleteStudents from './Components/DeleteStudents';
+import AddStudents from './Components/AddStudents';
+import Footer from './FooterComponent/Footer';
+import UpdateStudent from './Components/UpdateStudent';
+import { Search } from './Components/Search';
+/* import {StudentOperations} from "./StudentData/StudentOperations" */
+
+/* let studImpl= new StudentOperations(); */
 function App() {
+
+  /* let deleteStud=()=>{
+    studImpl.deleteStudent(101);
+  }
+
+  let showStud=()=>{
+    studImpl.getAllStudents();
+    
+  } */
   return (
+
+    <>
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Nav></Nav>
+    
+    <Routes>
+      <Route path="/students/showall" element={<ShowStudents></ShowStudents>}></Route>
+      <Route path="/students/delete/:id" element={<DeleteStudents></DeleteStudents>}></Route>
+      <Route path="/students/addstudent" element={<AddStudents></AddStudents>}></Route>
+      <Route path="/students/update/:id" element={<UpdateStudent></UpdateStudent>}></Route>
+      <Route path="/students/search/:id" element={<Search></Search>}></Route>
+    </Routes>
+    
+      {/* <button onClick={deleteStud}>delete</button>
+      <button onClick={showStud}>getAllStudents</button> */}
+      <footer>
+      <Footer></Footer>
+    </footer>
     </div>
+    
+    </>
   );
 }
 
