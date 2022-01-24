@@ -8,6 +8,7 @@ import AddStudents from './Components/AddStudents';
 import Footer from './FooterComponent/Footer';
 import UpdateStudent from './Components/UpdateStudent';
 import { Search } from './Components/Search';
+import Home from './Components/Home';
 /* import {StudentOperations} from "./StudentData/StudentOperations" */
 
 /* let studImpl= new StudentOperations(); */
@@ -29,6 +30,7 @@ function App() {
     <Nav></Nav>
     
     <Routes>
+      <Route path="/"  element={<Home></Home>}></Route>
       <Route path="/students/showall" element={<ShowStudents></ShowStudents>}></Route>
       <Route path="/students/delete/:id" element={<DeleteStudents></DeleteStudents>}></Route>
       <Route path="/students/addstudent" element={<AddStudents></AddStudents>}></Route>
